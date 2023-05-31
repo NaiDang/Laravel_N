@@ -11,6 +11,7 @@ class PageController extends Controller
     {
         $slide = Slide::all();
         return view('Page.trangchu', compact('slide'));
+        $new_product=product::where('new',1)->get();
     }
 
     public function getLoaiSp()
