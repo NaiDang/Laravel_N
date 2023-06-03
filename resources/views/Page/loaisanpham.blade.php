@@ -1,5 +1,5 @@
 @extends('master')											
-@section('content')											
+			@section('content')											
 			<div class="inner-header">											
 				<div class="container">										
 					<div class="pull-left">									
@@ -114,4 +114,4 @@
 					</div> <!-- .main-content -->									
 				</div> <!-- #content -->										
 			</div> <!-- .container -->											
-@endsection											
+			@endsection
