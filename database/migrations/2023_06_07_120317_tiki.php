@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products',function(Blueprint $table){
-            $table->increments('id');
-            $table->string('name')->unique();
-            $table->integer('price');
+        Schema::create('tiki', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->string('image');
-            // $table->interger('cate_id')->unsigned();
-            // $table->foreign('cate_id')
+            $table->decimal('price', 8, 2);
+            $table->decimal('sale', 8, 2);
+            $table->integer('description');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tiki');
     }
 };

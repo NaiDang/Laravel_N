@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Bill_detail extends Model
 {
     use HasFactory;
+    protected $table = 'products';
+    public function type_products(){
+        return $this->belongTo('App\Type_product');
+    }
+
+    public function bills_details(){
+        return $this -> hasMany('App\BillDetail');
+    }
+
+    public function comment(){
+        return $this -> belongTo('App\Product');
+    }
 }
+
