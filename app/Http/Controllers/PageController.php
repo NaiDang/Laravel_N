@@ -7,7 +7,11 @@ use App\Models\Slide;
 use App\Models\Product;
 use App\Models\Product_type;
 use App\Models\Comment;
+<<<<<<< HEAD
 use App\Models\bill_detail;
+=======
+use App\Models\Bill_detail;
+>>>>>>> 2454e6c9030ca89d7845f65836c45bb2f54af6da
 use Illuminate\Support\Carbon;
 
 class PageController extends Controller
@@ -45,6 +49,7 @@ class PageController extends Controller
             $day = $currentDate->day; // Ngày
             $month = $currentDate->month; // Tháng
             $year = $currentDate->year; // Năm
+<<<<<<< HEAD
             $sumSold = count(bill_detail::all());
 
             return view('pageAdmin.admin', compact('products', 'day', 'month', 'year', 'sumSold'));
@@ -78,14 +83,61 @@ class PageController extends Controller
             return redirect('/admin');							
 	    }
 
+=======
+            $sumSold = count(Bill_detail::all());
+
+            return view('pageAdmin.admin', compact('products', 'day', 'month', 'year', 'sumSold'));
+        }
+
+     
+        public function getAdminAdd()						
+        {						
+            return view('pageAdmin.formAdd');						
+        }						
+    
+     								
+	    public function postAdminAdd(Request $request)							
+	     {							
+            $product = new Product();							
+            if ($request->hasFile('inputImage')) {							
+            $file = $request->file('inputImage');							
+            $fileName = $file->getClientOriginalName('inputImage');							
+            $file->move('source/image/product', $fileName);							
+            }							
+            $file_name = null;							
+            if ($request->file('inputImage') != null) {							
+            $file_name = $request->file('inputImage')->getClientOriginalName();							
+            }							
+                                        
+            $product->name = $request->inputName;							
+            $product->image = $file_name;							
+            $product->description = $request->inputDescription;							
+            $product->unit_price = $request->inputPrice;							
+            $product->promotion_price = $request->inputPromotionPrice;							
+            $product->unit = $request->inputUnit;							
+            $product->new = $request->inputNew;							
+            $product->id_type = $request->inputType;							
+            $product->save();							
+            return redirect('/admin');							
+	    }
+
+>>>>>>> 2454e6c9030ca89d7845f65836c45bb2f54af6da
         public function getAdminEdit($id)
         {
            
                 $product = Product::find($id);
+<<<<<<< HEAD
                 return view('pageadmin.formEdit')->with('product', $product);
             
         }										
                             
+=======
+                return view('pageAdmin.formEdit')->with('product', $product);
+            
+        }										
+                                
+
+>>>>>>> 2454e6c9030ca89d7845f65836c45bb2f54af6da
          public function postAdminEdit(Request $request)
          {
              $id = $request->editId;
@@ -116,7 +168,10 @@ class PageController extends Controller
              
              return redirect('/admin');            
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2454e6c9030ca89d7845f65836c45bb2f54af6da
         public function postAdminDelete($id)
         {
             $product = Product::find($id);
@@ -126,4 +181,9 @@ class PageController extends Controller
             return redirect('/admin');
         }
     
+<<<<<<< HEAD
 }
+=======
+}
+    
+>>>>>>> 2454e6c9030ca89d7845f65836c45bb2f54af6da
