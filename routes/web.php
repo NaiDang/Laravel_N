@@ -62,6 +62,7 @@ Route::post('/register',[App\Http\Controllers\UserController::class,'Register'])
 
 Route::get('/login', function () { return view('users.login');});	
 Route::post('/login',[App\Http\Controllers\UserController::class,'login']);
+Route::get('/logout',[App\Http\Controllers\UserController::class,'logout']);
 
 
 Route::get('add-to-cart/{id}', [PageController::class, 'getAddToCart'])->name('themgiohang');											

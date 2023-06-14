@@ -23,7 +23,13 @@ class UserController extends Controller
     public function Logout(){
         Session::forget('user');
         Session::forget('cart');
-        Session::forget('/mas');
+        Session::forget('/home');
+        echo '
+        <script>
+            alert("Đăng xuất thành công");
+            window.location.assign("home");
+        </script>
+        ';
 
     }
     public function Register(Request $request){
