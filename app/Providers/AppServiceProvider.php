@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Providers;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Product;
+use App\Models\Cart;
 use App\Models\Product_type;
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,8 +33,6 @@ class AppServiceProvider extends ServiceProvider
              $view->with(['cart' => Session::get('cart'), 										
              'product_cart' => $cart->items, 										
              'totalPrice' => $cart->totalPrice, 										
-             
-             
              'totalQty' => $cart->totalQty										
              ]);										
             }										

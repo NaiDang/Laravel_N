@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Slide;
 use App\Models\Product;
 use App\Models\Product_type;
 use App\Models\Comment;
+use App\Models\Cart;
 use App\Models\bill_detail;
 use Illuminate\Support\Carbon;
 
