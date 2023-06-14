@@ -48,8 +48,6 @@ Route::get('/detail/{id}', [App\Http\Controllers\PageController::class,'getDetai
 
 Route::get('/type/{id}', [App\Http\Controllers\PageController::class,'getLoaiSp']);
 
-<<<<<<< HEAD
-=======
 Route::get('/admin', [App\Http\Controllers\PageController::class, 'getIndexAdmin']);																										
 Route::get('/admin-add-form', [App\Http\Controllers\PageController::class, 'getAdminAdd'])->name('add-product');														
 Route::post('/admin-add-form', [App\Http\Controllers\PageController::class, 'postAdminAdd']);												
@@ -58,7 +56,26 @@ Route::post('/admin-edit', [App\Http\Controllers\PageController::class, 'postAdm
 Route::post('/admin-delete/{id}', [App\Http\Controllers\PageController::class, 'postAdminDelete'])->name('delete-product');
 Route::post('/admin-export', [App\Http\Controllers\PageController::class, 'exportAdminProduct'])->name('export');
 
->>>>>>> 2454e6c9030ca89d7845f65836c45bb2f54af6da
+
+Route::get('/register', function () {return view('users.register');});
+Route::post('/register',[App\Http\Controllers\UserController::class,'Register']);						
+
+Route::get('/login', function () { return view('users.login');});	
+Route::post('/login',[App\Http\Controllers\UserController::class,'login']);
+
+
+Route::get('add-to-cart/{id}', [PageController::class, 'getAddToCart'])->name('themgiohang');											
+Route::get('del-cart/{id}', [PageController::class, 'getDelItemCart'])->name('xoagiohang');											
+
+
+
+
+
+
+
+
+
+
 Route::get('database', function () {
     if (!Schema::hasTable('loaisanpham')) {
         Schema::create('loaisanpham', function ($table) {
@@ -70,23 +87,27 @@ Route::get('database', function () {
         echo "Bảng đã tồn tại";
     }
 });
-<<<<<<< HEAD
-Route::get('/mas', [App\Http\Controllers\PageController::class,'getIndex']);
-Route::get('/detail/{id}', [App\Http\Controllers\PageController::class,'getDetail']);
 
-Route::get('/type/{id}', [App\Http\Controllers\PageController::class,'getLoaiSp']);
+			
+// Route::get('/register', function () {		
+// 	return view('users.register');		
+// 	});		
 
-Route::get('/admin', [App\Http\Controllers\PageController::class, 'getIndexAdmin']);												
+// Route::get('/login', function () {		
+//     return view('users.login');		
+//     });	
+
+// Route::get('/mas', [App\Http\Controllers\PageController::class,'getIndex']);
+// Route::get('/detail/{id}', [App\Http\Controllers\PageController::class,'getDetail']);
+
+// Route::get('/type/{id}', [App\Http\Controllers\PageController::class,'getLoaiSp']);
+
+// Route::get('/admin', [App\Http\Controllers\PageController::class, 'getIndexAdmin']);												
 														
-Route::get('/admin-add-form', [App\Http\Controllers\PageController::class, 'getAdminAdd'])->name('add-product');														
-Route::post('/admin-add-form', [App\Http\Controllers\PageController::class, 'postAdminAdd']);												
-Route::get('/admin-edit-form/{id}', [App\Http\Controllers\PageController::class, 'getAdminEdit']);
-Route::post('/admin-edit', [App\Http\Controllers\PageController::class, 'postAdminEdit']);
-
+// Route::get('/admin-add-form', [App\Http\Controllers\PageController::class, 'getAdminAdd'])->name('add-product');														
+// Route::post('/admin-add-form', [App\Http\Controllers\PageController::class, 'postAdminAdd']);												
+// Route::get('/admin-edit-form/{id}', [App\Http\Controllers\PageController::class, 'getAdminEdit']);
+// Route::post('/admin-edit', [App\Http\Controllers\PageController::class, 'postAdminEdit']);
 																
-Route::post('/admin-delete/{id}', [App\Http\Controllers\PageController::class, 'postAdminDelete'])->name('delete-product');
-
-
-Route::post('/admin-export', [App\Http\Controllers\PageController::class, 'exportAdminProduct'])->name('export');
-=======
->>>>>>> 2454e6c9030ca89d7845f65836c45bb2f54af6da
+// Route::post('/admin-delete/{id}', [App\Http\Controllers\PageController::class, 'postAdminDelete'])->name('delete-product');
+// Route::post('/admin-export', [App\Http\Controllers\PageController::class, 'exportAdminProduct'])->name('export');

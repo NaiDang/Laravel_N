@@ -10,8 +10,8 @@
 				<div class="pull-right auto-width-right">
 					<ul class="top-details menu-beta l-inline">
 						<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
-						<li><a href="#">Đăng kí</a></li>
-						<li><a href="#">Đăng nhập</a></li>
+						<li><a href="register">Đăng kí</a></li>
+						<li><a href="login">Đăng nhập</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -20,7 +20,7 @@
 		<div class="header-body">
 			<div class="container beta-relative">
 				<div class="pull-left">
-					<a href="index.html" id="logo"><img src="assets/dest/images/logo-cake.png" width="200px" alt=""></a>
+					<a href="index.html" id="logo"><img src="https://o.remove.bg/downloads/bba47777-fe99-48f5-ae75-b5be7832a60f/locake-removebg-preview.png" width="150px" alt=""></a>
 				</div>
 				<div class="pull-right beta-components space-left ov">
 					<div class="space10">&nbsp;</div>
@@ -30,6 +30,37 @@
 					        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
 						</form>
 					</div>
+
+					@if(Session::has('cart'))						
+						<div class="cart">					
+							<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (@if(Session::has('cart')){{Session('cart')->totalQty}}@else Trong @endif) <i class="fa fa-chevron-down"></i></div>				
+							<div class="beta-dropdown cart-body">				
+											
+								@foreach($product_cart as $product)			
+								<div class="cart-item" id="cart-item{{$product['item']['id']}}">			
+									<a class="cart-item-delete" value="{{$product['item']['id']}}" soluong="{{$product['qty']}}"><i class="fa fa-times"></i></a>		
+									<div class="media">		
+										<a class="pull-left" href="#"><img src="source/image/product/{{$product['item']['image']}}" alt=""></a>	
+										<div class="media-body">	
+											<span class="cart-item-title">{{$product['item']['name']}}</span>
+											<span class="cart-item-amount">{{$product['item']['qty']}}*<span>{{$product['item']['unit_price']}}</span></span>
+										</div>	
+									</div>		
+								</div>			
+								@endforeach			
+											
+								<div class="cart-caption">			
+									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{number_format(Session('cart')->totalPrice)}} đồng</span></div>		
+									<div class="clearfix"></div>		
+											
+									<div class="center">		
+										<div class="space10">&nbsp;</div>	
+										<a href="" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>	
+									</div>		
+								</div>			
+							</div>				
+						</div> <!-- .cart -->					
+					@endif						
 
 					<div class="beta-comp">
 						<div class="cart">

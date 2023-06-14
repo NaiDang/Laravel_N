@@ -9,7 +9,6 @@ class Bill_detail extends Model
 {
     protected $table='bill_detail';
     use HasFactory;
-    protected $table = 'products';
     public function type_products(){
         return $this->belongTo('App\Type_product');
     }

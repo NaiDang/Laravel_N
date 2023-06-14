@@ -24,6 +24,22 @@ class AppServiceProvider extends ServiceProvider
             $loai_sp=Product_type::all();
             $view->with('loai_sp',$loai_sp);
         });
+
+        view()->composer('header', function ($view) {										
+           if (Session('cart')) {										
+            $oldCart = Session::get('cart');										
+             $cart = new Cart($oldCart);										
+             $view->with(['cart' => Session::get('cart'), 										
+             'product_cart' => $cart->items, 										
+             'totalPrice' => $cart->totalPrice, 										
+             
+             
+             'totalQty' => $cart->totalQty										
+             ]);										
+            }										
+             });										
+                                                    
+            
         // view()->composer('page.loai_sanpham',function($view){
         //     $loai_sp=Type_product::all();
         //     $view->with('loai_sp',$loai_sp);

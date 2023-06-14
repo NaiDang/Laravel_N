@@ -28,4 +28,4 @@ Route::put('/edit-product/{id}',[APIController::class,'editProduct']);
                                 
 Route::post('/upload-image',[APIController::class,'uploadImage']);								
                                 
-Route::get('/tiki',[App\Http\Controllers\APITikiController::class,'getTiki']);
+Route::get('/tiki',[APITikiController::class,'getTiki']);
