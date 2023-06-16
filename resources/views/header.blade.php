@@ -1,4 +1,5 @@
-<div id="header">											
+												
+	<div id="header">											
 			<div class="header-top">									
 				<div class="container">								
 					<div class="pull-left auto-width-left">							
@@ -50,8 +51,8 @@
 									</div>			
 									@endforeach			
 												
-									<div class="cart-caption">
-									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{number_format(Session('cart')->totalPrice)}} đồng</span></div>		
+									<div class="cart-caption">			
+										<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{number_format(Session('cart')->totalPrice)}} đồng</span></div>		
 										<div class="clearfix"></div>		
 												
 										<div class="center">		
@@ -73,7 +74,7 @@
 					<div class="visible-xs clearfix"></div>							
 					<nav class="main-menu">							
 						<ul class="l-inline ov">						
-							<li><a href="../mas">Trang chủ</a></li>					
+							<li><a href="../home">Trang chủ</a></li>					
 												
 							<li><a href="type/1">Loai Sản phẩm</a>					
 								<ul class="sub-menu">				
@@ -89,4 +90,18 @@
 					</nav>							
 				</div> <!-- .container -->								
 			</div> <!-- .header-bottom -->									
-		</div> <!-- #header -->
+		</div> <!-- #header -->										
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
